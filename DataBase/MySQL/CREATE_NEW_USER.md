@@ -18,6 +18,8 @@ mysql -u root -p
 
 > `username` - имя нового пользователя
 
+> `127.0.0.1` - адрес хоста пользователя (в данном случае, локальный)
+
 > `password` - пароль нового пользователя
 
 ```sql
@@ -27,6 +29,8 @@ CREATE USER 'username'@'127.0.0.1' IDENTIFIED BY 'password';
 ### Выдаём привилегии пользователю
 
 > `username` - имя нового пользователя
+
+> `127.0.0.1` - адрес хоста пользователя (в данном случае, локальный)
 
 > `*.*` - Все права на все базы данных (формат: база_данных.право)
 
@@ -40,7 +44,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'username'@'127.0.0.1' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 ```
 
-### Выходим из  **MySQL**/**MariaDB**
+### Выходим из **MySQL**/**MariaDB**
 
 ```sql
 exit
@@ -66,4 +70,46 @@ mysql -u username database_name -p
 
 ```bash
 mysql -u username database_name --password="password"
+```
+
+# Меняем пароль пользователя
+
+### Входим от рута
+
+> Можно и от пользователя, если у него есть привилегии
+
+```bash
+mysql -u root -p
+```
+
+### Меняем пароль
+
+> `username` - имя пользователя
+
+> `127.0.0.1` - адрес хоста пользователя (в данном случае, локальный)
+
+> `password` - пароль пользователя
+
+```sql
+SET PASSWORD FOR 'username'@'127.0.0.1' = 'password';
+```
+
+Есть и другой запрос:
+
+```sql
+ALTER USER 'username'@'127.0.0.1' IDENTIFIED BY 'password';
+```
+
+### Сбросим кэш привилегий
+
+```sql
+FLUSH PRIVILEGES;
+```
+
+# Удалить пользователя (нафига его было создавать?)
+
+> `username` - имя пользователя
+
+```sql
+DROP USER username;
 ```
