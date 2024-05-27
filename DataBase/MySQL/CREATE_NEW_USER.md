@@ -113,3 +113,27 @@ FLUSH PRIVILEGES;
 ```sql
 DROP USER username;
 ```
+
+# Выводим пользователей **MySQL**/**MariaDB**
+
+### Все пользователи
+
+> Запрос обращается к колонке `user` в таблице пользователей **MySQL**/**MariaDB**
+
+```sql
+SELECT user FROM mysql.user;
+```
+
+### Посмотреть активных пользователей
+
+```sql
+SELECT SUBSTRING_INDEX(host, ':', 1) AS host_short, GROUP_CONCAT(DISTINCT user) AS users, COUNT(*) AS threads FROM information_schema.processlist GROUP BY host_short ORDER BY COUNT(*), host_short;
+```
+
+### Посмотреть активного пользователя
+
+> Ну... может вы забыли через кого зашли...
+
+```sql
+SELECT user();
+```
