@@ -16,7 +16,7 @@
 Я предпочитаю использовать последнюю версию, но пусть будет **PHP 8.1**
 
 ```bash
-sudo apt -y install php8.1 php8.1-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip,pdo}
+sudo apt-get install -y php8.1 php8.1-{common,cli,gd,mysql,mbstring,bcmath,xml,fpm,curl,zip,pdo}
 ```
 
 > Не все эти модули обязательны, но лучше поставить на будущее.

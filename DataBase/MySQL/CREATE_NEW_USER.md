@@ -110,8 +110,10 @@ FLUSH PRIVILEGES;
 
 > `username` - имя пользователя
 
+> `127.0.0.1` - адрес хоста пользователя (в данном случае, локальный)
+
 ```sql
-DROP USER username;
+DROP USER 'username'@'127.0.0.1';
 ```
 
 # Выводим пользователей **MySQL**/**MariaDB**
