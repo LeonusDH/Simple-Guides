@@ -133,6 +133,7 @@ sudo journalctl -xe -u ts3server | grep password
 
 ## **UFW**
 
+> [!IMPORTANT]  
 > Подойдёт, если вы используете **UFW** как **Frontend** для **iptables/nftables**, или только **UFW**
 
 > Голосовой сервер (обязателен)
